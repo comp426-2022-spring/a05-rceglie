@@ -2,8 +2,10 @@ const express = require('express')
 const minimist = require('minimist')
 const app = express()
 const args = minimist(process.argv.slice(2))
-const db = require("./database.js")
+const db = require("./src/services/database.js")
 const fs = require('fs')
+const cors = require('cors')
+app.use(cors())
 
 args["port"]
 

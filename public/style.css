@@ -2,7 +2,7 @@ div.hidden {
   display: none;
 }
 
-div.active {
+.active {
   border: 5px solid red;
 }
 
