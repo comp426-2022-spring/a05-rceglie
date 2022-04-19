@@ -4,8 +4,9 @@ const app = express()
 const args = minimist(process.argv.slice(2))
 const db = require("./src/services/database.js")
 const fs = require('fs')
-const cors = require('cors')
-app.use(cors())
+app.use(express.json());
+
+app.use(express.static('./public'));
 
 args["port"]
 
@@ -94,6 +95,11 @@ app.get('/app/flips/:number', (req, res) => {
     res.status(200).json({"raw" : flips, "summary" : countFlips(flips)})
 });
 
+app.get('/app/flips/coins', (req, res) => {
+    var flips = coinFlips(req.body.number)
+    res.status(200).json({"raw" : flips, "summary" : countFlips(flips)})
+});
+
 app.get('/app/flip/call/heads', (req, res) => {
     var result = "lose"
     var flip = coinFlip()
@@ -111,6 +117,15 @@ app.get('/app/flip/call/tails', (req, res) => {
     }
     res.status(200).json({"call" : "tails", "flip" : flip, "result" : result})
 });
+
+app.get('/app/flip/call/', (req,res,next) => {
+    var flip = coinFlip()
+    var result = "lost"
+    if (flip == req.body.guess){
+        result = "win"
+    }
+    res.status(200).json({"call" : "tails", "flip" : flip, "result" : result})
+})
 
 app.use(function(req,res){
     res.status(404).send('404 NOT FOUND')

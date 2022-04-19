@@ -64,4 +64,16 @@ function singleFlip(){
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
 
+function multiFlip(){
+    fetch('http://localhost:5000/app/flip/', {mode: 'cors'})
+  		.then(function(response) {
+    	    return response.json();
+  		})
+		.then(function(result) {
+			console.log(result);
+			document.getElementById("singleresulttxt").innerHTML = result.flip;
+            document.getElementById("singleresultimg").src = `./assets/img/${result.flip}.png`;
+        })
+}
+
 // Guess a flip by clicking either heads or tails button
