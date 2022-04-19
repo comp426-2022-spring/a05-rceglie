@@ -52,7 +52,17 @@
       <img id="singleresultimg" src="">
     </div>
     <div id="multi" class="hidden">
-      <button>Flip multiple</button>
+      <form id="numberform">
+        <label for="number">
+					<strong>Number of flips:</strong>
+				</label>
+				<input type="number" name="number" id="number" placeholder="ENTER NUMBER HERE" min="0">
+				<input type="submit" value="Flip">
+			</form>
+      <p id="headsnum"></p>
+      <p id="tailsnum"></p>
+      <span>All Results:</span>
+      <div id="multiresult"></div>
     </div>
     <div id="guess" class="hidden">
       <button>Guess 1</button>

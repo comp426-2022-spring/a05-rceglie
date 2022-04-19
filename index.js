@@ -95,7 +95,7 @@ app.get('/app/flips/:number', (req, res) => {
     res.status(200).json({"raw" : flips, "summary" : countFlips(flips)})
 });
 
-app.get('/app/flips/coins', (req, res) => {
+app.post('/app/flip/coins/', (req, res, next) => {
     var flips = coinFlips(req.body.number)
     res.status(200).json({"raw" : flips, "summary" : countFlips(flips)})
 });
@@ -118,7 +118,7 @@ app.get('/app/flip/call/tails', (req, res) => {
     res.status(200).json({"call" : "tails", "flip" : flip, "result" : result})
 });
 
-app.get('/app/flip/call/', (req,res,next) => {
+app.post('/app/flip/call/', (req,res,next) => {
     var flip = coinFlip()
     var result = "lost"
     if (flip == req.body.guess){

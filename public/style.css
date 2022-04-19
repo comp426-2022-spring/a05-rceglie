@@ -6,6 +6,25 @@
   border: 5px solid red;
 }
 
+#multiresult{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+
+.smallcoin{
+  display:flex;
+  flex-direction:column;
+  width:125px;
+  height:125px;
+  text-align:left;
+}
+
+.smallcoinimg{
+  width:100px;
+  height:100px;
+}
+
 img.bigcoin {
   width: 50px;
 }
