@@ -50,14 +50,14 @@ document.getElementById("guessnav").onclick = function(){
 // Flip one coin and show coin image to match result when button clicked
 
 function singleFlip(){
-    console.log("flip")
     fetch('http://localhost:5000/app/flip/', {mode: 'cors'})
   		.then(function(response) {
     	    return response.json();
   		})
 		.then(function(result) {
 			console.log(result);
-			document.getElementById("result").innerHTML = result.flip;
+			document.getElementById("singleresulttxt").innerHTML = result.flip;
+            document.getElementById("singleresultimg").src = `./assets/img/${result.flip}.png`;
         })
 }
 
