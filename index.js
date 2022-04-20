@@ -120,11 +120,11 @@ app.get('/app/flip/call/tails', (req, res) => {
 
 app.post('/app/flip/call/', (req,res,next) => {
     var flip = coinFlip()
-    var result = "lost"
+    var result = "lose"
     if (flip == req.body.guess){
         result = "win"
     }
-    res.status(200).json({"call" : "tails", "flip" : flip, "result" : result})
+    res.status(200).json({"call" : req.body.guess, "flip" : flip, "result" : result})
 })
 
 app.use(function(req,res){

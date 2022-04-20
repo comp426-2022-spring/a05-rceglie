@@ -32,3 +32,8 @@ img.bigcoin {
 img.smallcoin {
   width: 50px;
 }
+
+#winloseimg {
+  width:500px;
+  height:500px;
+}

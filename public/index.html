@@ -35,10 +35,10 @@
     <div id="home">
       <p>This is a website with three components:<p>
         <ol>
-          <li>Single flip
+          <li>Flip one coin
             <p>Simulate a single coin flip</p>
           </li>
-          <li>Multiple flips
+          <li>Flip multiple coins
             <p>Simulate multiple coin flips</p>
           </li>
           <li>Guess the result
@@ -65,8 +65,12 @@
       <div id="multiresult"></div>
     </div>
     <div id="guess" class="hidden">
-      <button>Guess 1</button>
-      <button>Guess 2</button>
+      <button id="guessheads" onclick="guessHeads()">Guess Heads</button>
+      <button id="guesstails" onclick="guessTails()">Guess Tails</button>
+      <p id="guessed">You guessed: </p>
+      <p id="actualresult">The flip was: </p>
+      <p id="winlose"></p>
+      <img id = "winloseimg" src="" class="hidden">
     </div>
 	<script src="main.js"></script>
   </body>

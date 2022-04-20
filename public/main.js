@@ -78,7 +78,7 @@ async function multiFlip(event){
         headers: {"Content-Type": 'application/json', Accept: 'application/json'},
         body: formDataJson
     }
-    console.log(options)
+    console.log(formDataJson)
 
     const flips = await fetch('http://localhost:5000/app/flip/coins/', options).then(function(response) {
         return response.json()
@@ -96,9 +96,44 @@ async function multiFlip(event){
         </div>
         `
     }
-
-    console.log(flips)
 }
 
-
 // Guess a flip by clicking either heads or tails button
+
+async function guessHeads(){
+    const options = {
+        method: "POST",
+        headers: {"Content-Type": 'application/json', Accept: 'application/json'},
+        body: JSON.stringify({"guess":"heads"})
+    }
+    console.log(options.body)
+
+    const result = await fetch('http://localhost:5000/app/flip/call/', options).then(function(response) {
+        return response.json()
+    })
+
+    document.getElementById("guessed").textContent = "You guessed: " + result.call
+    document.getElementById("actualresult").textContent = "The flip was: " + result.flip
+    document.getElementById("winlose").textContent = "You " + result.result + "!"
+    document.getElementById("winloseimg").src = `./assets/img/${result.result}.jpg`
+    document.getElementById("winloseimg").className = ""
+}
+
+async function guessTails(){
+    const options = {
+        method: "POST",
+        headers: {"Content-Type": 'application/json', Accept: 'application/json'},
+        body: JSON.stringify({"guess":"tails"})
+    }
+    console.log(options.body)
+
+    const result = await fetch('http://localhost:5000/app/flip/call/', options).then(function(response) {
+        return response.json()
+    })
+
+    document.getElementById("guessed").textContent = "You guessed: " + result.call
+    document.getElementById("actualresult").textContent = "The flip was: " + result.flip
+    document.getElementById("winlose").textContent = "You " + result.result + "!"
+    document.getElementById("winloseimg").src = `./assets/img/${result.result}.jpg`
+    document.getElementById("winloseimg").className = ""
+}
