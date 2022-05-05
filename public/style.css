@@ -1,9 +1,28 @@
-div.hidden {
+.hidden {
   display: none;
 }
 
-div.active {
+.active {
   border: 5px solid red;
+}
+
+#multiresult{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+
+.smallcoin{
+  display:flex;
+  flex-direction:column;
+  width:125px;
+  height:125px;
+  text-align:left;
+}
+
+.smallcoinimg{
+  width:100px;
+  height:100px;
 }
 
 img.bigcoin {
@@ -12,4 +31,9 @@ img.bigcoin {
 
 img.smallcoin {
   width: 50px;
+}
+
+#winloseimg {
+  width:50vh;
+  height:50vh;
 }
